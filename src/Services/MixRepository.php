@@ -31,7 +31,6 @@ class MixRepository{
         $this->twigDebugComand->run(new ArrayInput([]), $output);
         dd($output);*/
 
-        dd($this->githubContentClient);
        return $this->cache->get('mixes_data', function(CacheItemInterface $cacheItem){
             $cacheItem->expiresAfter($this->isDebug ? 5 : 60);   
             $response = $this->githubContentClient->request('GET', '/SymfonyCasts/vinyl-mixes/main/mixes.json');
